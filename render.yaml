@@ -1,0 +1,15 @@
+# Hébergement gratuit sur Render (https://render.com) — mode démonstration, aucune clé d'IA.
+services:
+  - type: web
+    name: haltup
+    runtime: python
+    plan: free
+    buildCommand: echo "Aucune dépendance à installer"
+    startCommand: python3 server.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: AI_PROVIDER
+        value: none
+      - key: PYTHON_VERSION
+        value: 3.11.9

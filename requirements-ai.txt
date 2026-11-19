@@ -1,0 +1,3 @@
+# Uniquement pour AI_PROVIDER=anthropic. Le mode démonstration n'a besoin d'aucune dépendance.
+# Sous Python 3.9, pip installera automatiquement la dernière version 0.x compatible.
+anthropic

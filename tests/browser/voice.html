@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tests — dictée vocale HALTUP</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h1>Tests de la dictée vocale (reconnaissance simulée)</h1>
+    <p>Ces tests remplacent la reconnaissance vocale du navigateur par une simulation : ils vérifient le comportement de HALTUP, pas la qualité de la reconnaissance réelle.</p>
+    <p id="summary">Tests en cours…</p>
+    <pre id="results" class="test-results"></pre>
+
+    <!-- Copie minimale de la zone de saisie de la Conversation -->
+    <div class="voice" id="voice-panel" hidden role="region" aria-labelledby="voice-title">
+      <p class="voice__title" id="voice-title"></p>
+      <p class="voice__status" id="voice-status"></p>
+      <p class="voice__transcript" id="voice-transcript" hidden><span id="voice-final"></span><span class="voice__interim" id="voice-interim"></span></p>
+      <div class="voice__actions" id="voice-actions"></div>
+    </div>
+    <p class="sr-only" id="voice-live" aria-live="assertive" role="status"></p>
+    <form class="composer" id="composer">
+      <textarea id="msg" rows="1" maxlength="1000"></textarea>
+      <button type="button" class="composer__mic" id="mic-btn" aria-pressed="false" aria-expanded="false"><svg class="composer__mic-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="composer__stop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2.5" fill="currentColor"/></svg></button>
+      <button type="submit" id="send-btn">Envoyer</button>
+    </form>
+  </main>
+  <script src="/__tests__/fake-recognition.js"></script>
+  <script src="/voice.js"></script>
+  <script src="/__tests__/voice.test.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "name": "Profils sportifs HALTUP",
+    "version": "0.1",
+    "written_on": "2026-11-17",
+    "method": "Synthèse générale rédigée par l'équipe HALTUP à partir de connaissances courantes en préparation physique. Aucune source externe n'a été consultée ni vérifiée pour cette version.",
+    "license": "Contenu original du projet HALTUP — licence de réutilisation à choisir par l'équipe.",
+    "warning": "Ces profils orientent le choix de familles d'exercices. Ils ne constituent ni un protocole fédéral ni une programmation experte. À faire relire par un préparateur physique qualifié et à compléter avec des sources vérifiées."
+  },
+  "sports": {
+    "football": {
+      "name": "Football",
+      "qualities": ["accélérations et changements de direction", "force des membres inférieurs", "ischio-jambiers et adducteurs", "gainage"],
+      "specifics": "Sport intermittent avec sprints, frappes et duels : la séance privilégie le travail unilatéral des jambes, la chaîne arrière et les adducteurs.",
+      "priority_patterns": ["lunge", "hinge", "adductor", "core_rot"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne tient pas compte du poste, de la période de la saison ni du volume d'entraînement réel du club."
+    },
+    "basketball": {
+      "name": "Basketball",
+      "qualities": ["détente verticale", "réceptions de saut", "changements de direction", "gainage"],
+      "specifics": "Nombreux sauts et réceptions : la séance insiste sur la qualité de réception, les jambes et les mollets.",
+      "priority_patterns": ["power_lower", "lunge", "calf", "core_anti_ext"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne remplace pas un travail technique de saut encadré ; le volume de sauts du basket lui-même n'est pas mesuré."
+    },
+    "rugby": {
+      "name": "Rugby",
+      "qualities": ["force générale", "contacts et poussées", "haut du dos", "gainage"],
+      "specifics": "Sport de contact : la séance équilibre poussées, tirages, jambes et gainage, avec un travail de port de charge si le matériel le permet.",
+      "priority_patterns": ["squat", "push_h", "pull_h", "carry"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne prépare pas spécifiquement aux placages, mêlées ou contacts, qui relèvent de l'encadrement du club."
+    },
+    "athletisme": {
+      "name": "Athlétisme",
+      "qualities": ["force générale", "gainage", "chaîne postérieure"],
+      "specifics": "Discipline très variée (courses, sauts, lancers) : sans précision, la séance reste générale.",
+      "priority_patterns": ["hinge", "lunge", "core_anti_ext"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Les épreuves de lancer, de demi-fond ou de fond ne sont pas différenciées dans ce prototype."
+    },
+    "athletisme_sprint_sauts": {
+      "name": "Athlétisme — sprint / sauts",
+      "qualities": ["puissance des membres inférieurs", "raideur des chevilles", "chaîne postérieure", "gainage"],
+      "specifics": "Sprint et sauts demandent puissance et réactivité : la séance place un travail d'intention de vitesse en début de séance, quand la fraîcheur est maximale.",
+      "priority_patterns": ["power_lower", "hinge", "calf", "lunge"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne remplace pas les séances techniques de piste ni la planification d'un entraîneur."
+    },
+    "volleyball": {
+      "name": "Volleyball",
+      "qualities": ["détente verticale", "réceptions", "épaules (smash, service)", "gainage"],
+      "specifics": "Sauts répétés et gestes au-dessus de la tête : la séance associe jambes, réceptions et renforcement des épaules.",
+      "priority_patterns": ["power_lower", "shoulder", "lunge", "core_anti_ext"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne tient pas compte du poste ni du nombre de sauts déjà effectués à l'entraînement."
+    },
+    "handball": {
+      "name": "Handball",
+      "qualities": ["lancers", "changements de direction", "épaules", "contacts"],
+      "specifics": "Lancers et duels : la séance associe travail de rotation, épaules et jambes unilatérales.",
+      "priority_patterns": ["power_upper", "shoulder", "lunge", "core_rot"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne prépare pas au geste de tir lui-même."
+    },
+    "tennis": {
+      "name": "Tennis",
+      "qualities": ["rotation du tronc", "déplacements latéraux", "épaules", "avant-bras"],
+      "specifics": "Frappes en rotation et déplacements latéraux : la séance insiste sur l'anti-rotation, les fentes latérales et l'épaule.",
+      "priority_patterns": ["core_rot", "lunge", "shoulder", "pull_h"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne tient pas compte de la latéralité ni du volume de frappes."
+    },
+    "natation": {
+      "name": "Natation",
+      "qualities": ["tirages", "épaules", "gainage", "jambes"],
+      "specifics": "Sport porté avec de nombreux mouvements de bras : la séance favorise les tirages, la santé des épaules et le gainage.",
+      "priority_patterns": ["pull_v", "pull_h", "shoulder", "core_anti_ext"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Les nages ne sont pas différenciées ; le volume hebdomadaire nagé n'est pas pris en compte."
+    },
+    "boxe": {
+      "name": "Boxe",
+      "qualities": ["rotation du tronc", "poussées", "gainage", "jambes"],
+      "specifics": "Coups portés grâce à la chaîne jambes-hanches-tronc : la séance privilégie la rotation, le gainage et les poussées.",
+      "priority_patterns": ["core_rot", "push_h", "power_upper", "lunge"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne remplace pas l'entraînement technique ni la préparation aux combats, et ne concerne pas les sports de combat avec chocs à la tête de façon spécifique."
+    },
+    "cyclisme": {
+      "name": "Cyclisme",
+      "qualities": ["force des membres inférieurs", "travail unilatéral", "gainage", "haut du dos (posture)"],
+      "specifics": "Pédalage en position fléchie : la séance renforce les jambes de façon unilatérale, la chaîne postérieure et le gainage.",
+      "priority_patterns": ["lunge", "hinge", "core_anti_ext", "pull_h"],
+      "confidence": "faible",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Ne tient pas compte de la discipline (route, VTT, piste) ni du volume roulé."
+    },
+    "autre": {
+      "name": "Préparation générale",
+      "qualities": ["force générale", "gainage", "équilibre des groupes musculaires"],
+      "specifics": "Sport non listé : la séance reste générale et équilibrée, sans spécificité experte.",
+      "priority_patterns": [],
+      "confidence": "aucune spécificité",
+      "sources": [],
+      "consulted_on": null,
+      "limits": "Séance générale : elle n'est pas adaptée aux exigences particulières de votre sport."
+    }
+  }
+}

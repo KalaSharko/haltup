@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HALTUP — votre séance de musculation adaptée</title>
+  <meta name="description" content="HALTUP prépare une séance de musculation adaptée à votre sport, votre objectif, votre niveau et votre matériel.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="logo" href="#" id="logo-link" aria-label="HALTUP — accueil">
+        <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="currentColor"/>
+          <path d="M10 26 L20 16 L30 26" fill="none" stroke="#FBF8F2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 18 L20 8 L30 18" fill="none" stroke="#FBF8F2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+          <path d="M12 32 H28" stroke="#FBF8F2" stroke-width="3.2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo__word">HALTUP</span>
+      </a>
+      <nav class="topbar__nav" aria-label="Navigation principale">
+        <button type="button" class="link-btn" id="nav-session">Ma séance</button>
+        <a class="link-btn" href="#about">Limites et confidentialité</a>
+        <span class="mode-badge" id="mode-badge" role="status">…</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Accueil -->
+    <section class="view home" id="home" aria-labelledby="home-title">
+      <div class="hero">
+        <p class="eyebrow">Préparation physique · prototype</p>
+        <h1 id="home-title">Votre séance de musculation, <span class="accent">adaptée à votre sport</span>, votre objectif et votre matériel.</h1>
+        <p class="hero__pitch" id="hero-pitch"></p>
+        <div class="hero__actions">
+          <button type="button" class="btn btn--primary btn--lg" id="start-btn">
+            Construire ma séance
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="hero__hint">Moins d'une minute · sans compte</span>
+        </div>
+      </div>
+
+      <ol class="steps" aria-label="Comment ça marche">
+        <li class="step">
+          <span class="step__num" aria-hidden="true">1</span>
+          <h2>Votre profil en quelques clics</h2>
+          <p>Sport, objectif, niveau, matériel, durée — par formulaire ou en une phrase dans le chat.</p>
+        </li>
+        <li class="step">
+          <span class="step__num" aria-hidden="true">2</span>
+          <h2>Une séance claire</h2>
+          <p>Échauffement, exercices avec séries, répétitions et repos, variantes et retour au calme.</p>
+        </li>
+        <li class="step">
+          <span class="step__num" aria-hidden="true">3</span>
+          <h2>Des adaptations immédiates</h2>
+          <p>« Je n'ai pas de banc », « 30 minutes seulement », « match demain » : seules les parties concernées changent.</p>
+        </li>
+      </ol>
+
+      <aside class="notice" aria-label="Limites">
+        <p id="home-disclaimer"></p>
+      </aside>
+    </section>
+
+    <!-- Espace de travail : profil + conversation -->
+    <section class="view workspace" id="workspace" hidden aria-label="Construire ma séance">
+      <section class="scenarios" aria-labelledby="scenarios-title">
+        <div class="scenarios__head">
+          <h2 id="scenarios-title">Scénarios de démonstration</h2>
+          <p>Chaque scénario remplit le profil ; vous vérifiez les choix, puis lancez la génération.</p>
+        </div>
+        <div class="scenarios__list" id="scenarios-list"></div>
+      </section>
+      <aside class="card panel profile-panel" aria-labelledby="profile-title">
+        <div class="panel__head">
+          <h2 id="profile-title">Profil de séance</h2>
+          <button type="button" class="link-btn small" id="toggle-profile" aria-expanded="true" aria-controls="profile-form">Masquer</button>
+        </div>
+        <div class="progress" id="profile-progress" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+          <div class="progress__bar" id="progress-bar"></div>
+        </div>
+        <p class="progress__label" id="progress-label">Profil complété : 0 sur 10</p>
+        <form id="profile-form" novalidate>
+          <div class="scenario-box" id="scenario-box" hidden tabindex="-1"></div>
+          <div class="form-errors" id="form-errors" role="alert" hidden></div>
+
+          <div class="field">
+            <label for="f-sport">Sport</label>
+            <select id="f-sport" name="sport"></select>
+          </div>
+          <div class="field" id="field-athletics" hidden>
+            <span class="field__label" id="lbl-athle">Spécialité d'athlétisme</span>
+            <div class="seg" role="radiogroup" aria-labelledby="lbl-athle" id="f-athletics"></div>
+          </div>
+          <div class="field" id="field-other-sport" hidden>
+            <label for="f-other-sport">Nom de votre sport <span class="opt">(facultatif)</span></label>
+            <input id="f-other-sport" name="other_sport" maxlength="40" autocomplete="off">
+            <p class="help">La séance restera générale : HALTUP n'a pas de profil sourcé pour ce sport.</p>
+          </div>
+
+          <fieldset class="field">
+            <legend>Objectif principal</legend>
+            <div class="chips chips--radio" id="f-goal"></div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Niveau</legend>
+            <div class="seg" id="f-level"></div>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-duration">Durée disponible</label>
+              <select id="f-duration" name="duration"></select>
+            </div>
+            <fieldset class="field">
+              <legend>Lieu</legend>
+              <div class="seg seg--wrap" id="f-place"></div>
+            </fieldset>
+          </div>
+
+          <fieldset class="field">
+            <legend>Matériel réellement disponible <span class="opt">(plusieurs choix)</span></legend>
+            <div class="chips" id="f-equipment"></div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Autre matériel</legend>
+            <label class="check"><input type="checkbox" id="f-other-eq-none"> Aucun autre matériel</label>
+            <label for="f-other-eq" class="sublabel">Ou précisez</label>
+            <input id="f-other-eq" name="other_equipment" maxlength="80" autocomplete="off" placeholder="ex. : barre de traction, step">
+            <p class="help">Noté pour information : ce matériel n'est pas utilisé dans la sélection automatique.</p>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Charge sportive</legend>
+            <label class="check"><input type="checkbox" id="f-fatigue-none"> Aucun entraînement ni match à signaler</label>
+            <label class="check"><input type="checkbox" id="f-fatigue-recent"> Entraînement ou match intense dans les dernières 24–48 h</label>
+            <label class="check"><input type="checkbox" id="f-fatigue-next"> Entraînement ou match prévu dans les prochaines 24–48 h</label>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Avez-vous une douleur, une blessure ou une restriction médicale qui affecte l'entraînement ?</legend>
+            <div class="seg" id="f-pain">
+              <label class="seg__opt"><input type="radio" name="pain" value="non"><span>Non</span></label>
+              <label class="seg__opt"><input type="radio" name="pain" value="oui"><span>Oui</span></label>
+            </div>
+            <p class="help">Aucun détail médical n'est demandé.</p>
+            <div class="pain-zones" id="field-pain-zones" hidden>
+              <p class="sublabel" id="lbl-zones">Quelle zone est concernée ?</p>
+              <div class="chips" id="f-pain-zones" role="group" aria-labelledby="lbl-zones"></div>
+              <p class="help">Indiquez seulement la zone (deux au maximum) : elle sert uniquement à écarter les exercices qui la sollicitent. Ce tri reste approximatif et ne remplace pas l'avis d'un professionnel de santé ou d'un entraîneur qualifié.</p>
+            </div>
+          </fieldset>
+
+          <label class="check check--strong"><input type="checkbox" id="f-adult"> Je confirme avoir 18 ans ou plus.</label>
+
+          <button type="submit" class="btn btn--primary btn--block" id="generate-btn">Générer ma séance</button>
+
+        </form>
+      </aside>
+
+      <section class="card panel chat-panel" aria-labelledby="chat-title">
+        <div class="panel__head">
+          <h2 id="chat-title">Conversation</h2>
+          <div class="panel__head-actions">
+<button type="button" class="mini-btn" id="clear-session-btn" disabled aria-describedby="clear-session-hint">Supprimer la séance</button>
+            <button type="button" class="link-btn small" id="restart-btn">Recommencer</button>
+          </div>
+        </div>
+        <p class="panel__hint" id="clear-session-hint">Aucune séance à supprimer pour l'instant.</p>
+        <div class="thread" id="thread" role="log" aria-live="polite" aria-relevant="additions"></div>
+        <div class="quick" id="quick" aria-label="Réponses rapides"></div>
+        <!-- Dictée vocale : état d'écoute, aperçu provisoire et erreurs. Rien n'est envoyé sans clic sur « Envoyer ». -->
+        <div class="voice" id="voice-panel" hidden role="region" aria-labelledby="voice-title">
+          <p class="voice__title" id="voice-title"></p>
+          <p class="voice__status" id="voice-status"></p>
+          <p class="voice__transcript" id="voice-transcript" hidden aria-label="Aperçu de la dictée"><span id="voice-final"></span><span class="voice__interim" id="voice-interim"></span></p>
+          <div class="voice__actions" id="voice-actions"></div>
+        </div>
+        <p class="sr-only" id="voice-live" aria-live="assertive" role="status"></p>
+        <form class="composer" id="composer">
+          <label for="msg" class="sr-only">Votre message</label>
+          <textarea id="msg" rows="1" maxlength="1000" placeholder="Ex. : je fais du tennis, débutant, 30 min, élastiques…"></textarea>
+          <button type="button" class="composer__mic" id="mic-btn" aria-label="Dicter un message vocal en français" aria-pressed="false" aria-controls="voice-panel" aria-expanded="false" title="Dicter un message vocal en français">
+            <svg class="composer__mic-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="composer__stop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2.5" fill="currentColor"/></svg>
+          </button>
+          <button type="submit" class="btn btn--primary composer__send" id="send-btn" aria-label="Envoyer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z" fill="currentColor"/></svg>
+          </button>
+        </form>
+        <p class="privacy-line" id="privacy-line"></p>
+      </section>
+    </section>
+
+    <!-- Limites -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="card about__card">
+        <h2 id="about-title">Limites, sécurité et confidentialité</h2>
+        <ul class="about__list">
+          <li><strong>Pour les adultes.</strong> HALTUP est un prototype scolaire réservé aux 18 ans et plus.</li>
+          <li><strong>Pas un avis médical.</strong> HALTUP ne remplace ni un professionnel de santé ni un entraîneur qualifié, ne pose aucun diagnostic et ne propose pas de rééducation.</li>
+          <li><strong>Pas de promesse.</strong> Aucune garantie de performance, de perte de poids ou d'absence de blessure.</li>
+          <li><strong>Données limitées.</strong> Catalogue d'exercices et profils sportifs rédigés pour le prototype, non relus par un professionnel. Les spécificités sportives sont indicatives (confiance faible).</li>
+          <li><strong>Confidentialité.</strong> Pas de compte. La conversation et les réponses du profil restent dans cet onglet, ne sont pas enregistrées dans le navigateur et disparaissent à sa fermeture ou à son rechargement. Dictée vocale : HALTUP ne reçoit ni ne conserve l'audio ; la transcription est faite par votre navigateur, dont l'éditeur peut recevoir l'audio selon le navigateur utilisé. <span id="about-privacy"></span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>HALTUP</strong> · prototype pédagogique de projet de start-up · non commercialisé</p>
+  </footer>
+
+  <template id="tpl-typing">
+    <div class="msg msg--bot msg--typing" aria-label="HALTUP prépare la réponse">
+      <span></span><span></span><span></span>
+    </div>
+  </template>
+
+  <script src="voice.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
